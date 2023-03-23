@@ -4,6 +4,9 @@
    connection: local
    gather_facts: False
    tags: provisioning
+   become: true
+   vars:
+    ansible_python_interpreter: /usr/bin/python3
 
    tasks:
      - name: create S3 bucket
