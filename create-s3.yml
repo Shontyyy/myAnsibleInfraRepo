@@ -4,6 +4,8 @@
    connection: local
    gather_facts: False
    tags: provisioning
+   become: yes
+   become_method: sudo
   
    tasks:
      - name: create S3 bucket
