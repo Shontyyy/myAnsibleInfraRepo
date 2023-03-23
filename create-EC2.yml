@@ -48,14 +48,17 @@
        register: basic_firewall
      
      - name: Launch the new EC2 Instance
-       local_action:  ec2 
-                      group={{ security_group }} 
-                      instance_type={{ instance_type}} 
-                      image={{ image }} 
-                      wait=true 
-                      region={{ region }} 
-                      keypair={{ keypair }}
-                      count={{count}}
+       local_action:
+         module: ec2
+         group: "{{ security_group }}"
+         instance_type: "{{ instance_type }}"
+         image: "{{ image }}"
+         wait: "{{ wait }}"
+         region: "{{ region }}"
+         keypair: "{{ keypair }}"
+         count: "{{ count }}"
+       register: ec2
+
        register: ec2
      - name: Task # 3 Add Tagging to EC2 instance
        local_action: ec2_tag resource={{ item.id }} region={{ region }} state=present
