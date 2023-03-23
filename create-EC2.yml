@@ -10,7 +10,7 @@
    vars:
      keypair: new-key.pem
      instance_type: t2.micro
-     image: ami-0ee23bfc74a881de5
+     image: ami-0f8ca728008ff5af4
      wait: yes
      group: webserver
      count: 1
