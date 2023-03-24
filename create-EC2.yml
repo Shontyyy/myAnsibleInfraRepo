@@ -59,6 +59,8 @@
       
     - set_fact:
        instances: "{{ ec2.instances | map(attribute='id') | list }}"
+      when: ec2 is defined and ec2.instances is defined and ec2.instances | length > 0
+
 
     - name: Add tagging to EC2 instance
       local_action: ec2_tag resource={{ item }} region={{ region }} state=present
