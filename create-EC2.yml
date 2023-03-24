@@ -49,7 +49,7 @@
      
      - name: Launch the new EC2 Instance
        local_action:
-         module: ec2
+         module: amazon.aws.ec2_instance
          group: "{{ security_group }}"
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
