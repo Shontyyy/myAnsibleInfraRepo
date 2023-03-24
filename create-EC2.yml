@@ -10,7 +10,7 @@
   vars:
     key_name: new-key
     instance_type: t2.micro
-    image: ami-0f8ca728008ff5af4
+    image_id: ami-0f8ca728008ff5af4
     wait: yes
     security_group: ec2-security-group
     count: 1
@@ -50,7 +50,7 @@
         module: amazon.aws.ec2_instance
         key_name: "{{ key_name }}"
         instance_type: "{{ instance_type }}"
-        image: "{{ image }}"
+        image_id: "{{ image_id }}"
         wait: "{{ wait }}"
         region: "{{ region }}"
         count: "{{ count }}"
